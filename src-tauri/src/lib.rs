@@ -2,12 +2,19 @@ use tauri::menu::{MenuBuilder, MenuItemBuilder};
 use tauri::tray::TrayIconBuilder;
 use tauri::{Emitter, Manager, WindowEvent};
 
+#[allow(dead_code)]
 mod cleaner;
+#[allow(dead_code)]
 mod commands;
+#[allow(dead_code)]
 mod database;
+#[allow(dead_code)]
 mod monitor;
+#[allow(dead_code)]
 mod rules;
+#[allow(dead_code)]
 mod scanner;
+#[allow(dead_code)]
 mod utils;
 
 use database::Database;
@@ -86,7 +93,7 @@ pub fn run() {
             // Setup system tray
             let show_item = MenuItemBuilder::with_id("show", "显示主窗口").build(app)?;
             let scan_item = MenuItemBuilder::with_id("scan", "快速扫描").build(app)?;
-            let separator = MenuItemBuilder::with_id("separator", "").build(app)?;
+            let _separator = MenuItemBuilder::with_id("separator", "").build(app)?;
             let quit_item = MenuItemBuilder::with_id("quit", "退出").build(app)?;
 
             let menu = MenuBuilder::new(app)
