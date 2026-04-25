@@ -1,9 +1,9 @@
-pub mod system_junk;
 pub mod app_cache;
 pub mod big_file;
 pub mod duplicate;
 pub mod privacy;
 pub mod startup;
+pub mod system_junk;
 
 use serde::Serialize;
 

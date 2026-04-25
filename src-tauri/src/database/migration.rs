@@ -63,7 +63,8 @@ pub fn run(conn: &Connection) -> Result<(), String> {
             value TEXT NOT NULL
         );
         ",
-    ).map_err(|e| e.to_string())?;
+    )
+    .map_err(|e| e.to_string())?;
 
     Ok(())
 }

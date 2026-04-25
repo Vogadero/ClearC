@@ -1,5 +1,5 @@
 // Hash utilities
-use sha2::{Sha256, Digest};
+use sha2::{Digest, Sha256};
 use std::fs::File;
 use std::io::Read;
 
@@ -18,7 +18,11 @@ pub fn file_sha256(path: &str) -> Result<String, String> {
     Ok(format!("{:x}", result))
 }
 
-pub fn file_partial_hash(path: &str, head_bytes: usize, tail_bytes: usize) -> Result<String, String> {
+pub fn file_partial_hash(
+    path: &str,
+    head_bytes: usize,
+    tail_bytes: usize,
+) -> Result<String, String> {
     let metadata = std::fs::metadata(path).map_err(|e| e.to_string())?;
     let file_size = metadata.len() as usize;
     let mut file = File::open(path).map_err(|e| e.to_string())?;

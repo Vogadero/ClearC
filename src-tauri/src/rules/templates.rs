@@ -4,7 +4,8 @@ pub fn default_templates() -> Vec<RuleTemplate> {
     vec![
         RuleTemplate {
             name: "清理下载目录中超过90天的安装包".to_string(),
-            description: "自动清理 Downloads 目录中 .exe/.msi/.zip 超过90天未访问的文件".to_string(),
+            description: "自动清理 Downloads 目录中 .exe/.msi/.zip 超过90天未访问的文件"
+                .to_string(),
         },
         RuleTemplate {
             name: "压缩超过30天的日志文件".to_string(),

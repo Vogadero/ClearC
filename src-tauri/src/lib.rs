@@ -1,13 +1,13 @@
-use tauri::{Manager, WindowEvent};
 use tauri::menu::{MenuBuilder, MenuItemBuilder};
 use tauri::tray::TrayIconBuilder;
+use tauri::{Manager, WindowEvent};
 
-mod commands;
-mod scanner;
 mod cleaner;
+mod commands;
 mod database;
-mod rules;
 mod monitor;
+mod rules;
+mod scanner;
 mod utils;
 
 use database::Database;
@@ -40,8 +40,7 @@ fn set_initialized() -> Result<(), String> {
 #[tauri::command]
 fn get_disk_space() -> Result<DiskSpace, String> {
     use std::fs;
-    let total = fs::metadata(r"C:\")
-        .map_err(|e| e.to_string())?;
+    let total = fs::metadata(r"C:\").map_err(|e| e.to_string())?;
     // Use windows API for actual disk space
     Ok(DiskSpace {
         total_bytes: 0,
@@ -104,26 +103,24 @@ pub fn run() {
                 .icon(app.default_window_icon().unwrap().clone())
                 .tooltip("ClearC - C盘智能清理工具")
                 .menu(&menu)
-                .on_menu_event(|app, event| {
-                    match event.id().as_ref() {
-                        "show" => {
-                            if let Some(window) = app.get_webview_window("main") {
-                                let _ = window.show();
-                                let _ = window.set_focus();
-                            }
+                .on_menu_event(|app, event| match event.id().as_ref() {
+                    "show" => {
+                        if let Some(window) = app.get_webview_window("main") {
+                            let _ = window.show();
+                            let _ = window.set_focus();
                         }
-                        "scan" => {
-                            if let Some(window) = app.get_webview_window("main") {
-                                let _ = window.show();
-                                let _ = window.set_focus();
-                                let _ = window.emit("tray-action", "quick-scan");
-                            }
-                        }
-                        "quit" => {
-                            app.exit(0);
-                        }
-                        _ => {}
                     }
+                    "scan" => {
+                        if let Some(window) = app.get_webview_window("main") {
+                            let _ = window.show();
+                            let _ = window.set_focus();
+                            let _ = window.emit("tray-action", "quick-scan");
+                        }
+                    }
+                    "quit" => {
+                        app.exit(0);
+                    }
+                    _ => {}
                 })
                 .on_tray_icon_event(|tray, event| {
                     if let tauri::tray::TrayIconEvent::DoubleClick { .. } = event {

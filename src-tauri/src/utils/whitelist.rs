@@ -45,9 +45,22 @@ const PROTECTED_DIRS: &[&str] = &[
 
 /// File extensions that should never be deleted
 const PROTECTED_EXTENSIONS: &[&str] = &[
-    ".sys", ".drv", ".dll", ".exe", ".msi", ".cat", ".inf",
-    ".nls", ".mui", ".manifest", ".icl", ".fon", ".ttf", ".otf",
-    ".cur", ".ani",
+    ".sys",
+    ".drv",
+    ".dll",
+    ".exe",
+    ".msi",
+    ".cat",
+    ".inf",
+    ".nls",
+    ".mui",
+    ".manifest",
+    ".icl",
+    ".fon",
+    ".ttf",
+    ".otf",
+    ".cur",
+    ".ani",
 ];
 
 /// Check if a path is in the protected whitelist

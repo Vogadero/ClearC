@@ -1,5 +1,5 @@
-pub mod models;
 pub mod migration;
+pub mod models;
 
 use rusqlite::Connection;
 use std::path::PathBuf;
