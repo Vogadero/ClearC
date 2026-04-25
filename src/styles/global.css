@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-canvas: #F7F8FA;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #FFFFFF;
+    --color-surface-inset: #F0F1F3;
+    --color-border-default: #E5E6EB;
+    --color-border-subtle: #F0F1F3;
+    --color-text-primary: #1D2129;
+    --color-text-secondary: #4E5969;
+    --color-text-tertiary: #86909C;
+    --color-brand: #1677FF;
+    --color-brand-hover: #4096FF;
+    --color-brand-active: #0958D9;
+    --color-brand-subtle: #E8F3FF;
+    --color-safe: #00B42A;
+    --color-safe-subtle: #E8FFEA;
+    --color-warn: #FF7D00;
+    --color-warn-subtle: #FFF7E8;
+    --color-danger: #F53F3F;
+    --color-danger-subtle: #FFECE8;
+  }
+
+  .dark {
+    --color-canvas: #17171A;
+    --color-surface: #232326;
+    --color-surface-elevated: #2C2C30;
+    --color-surface-inset: #1A1A1D;
+    --color-border-default: #3D3D40;
+    --color-border-subtle: #2C2C30;
+    --color-text-primary: #F0F0F2;
+    --color-text-secondary: #A8A8AD;
+    --color-text-tertiary: #6B6B70;
+    --color-brand: #3C8AFF;
+    --color-brand-hover: #5A9AFF;
+    --color-brand-active: #2A6FD6;
+    --color-brand-subtle: #1A2E4A;
+    --color-safe: #23C343;
+    --color-safe-subtle: #0E2A15;
+    --color-warn: #FF9A2E;
+    --color-warn-subtle: #2A2010;
+    --color-danger: #F76560;
+    --color-danger-subtle: #2A1515;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Segoe UI Variable', 'Segoe UI', 'Microsoft YaHei UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--color-text-primary);
+    background-color: var(--color-canvas);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-default);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-tertiary);
+  }
+}

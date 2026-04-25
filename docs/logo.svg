@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C5CE7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984E3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="diskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DFE6E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B2BEC3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sweepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00CEC9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#55EFC4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#2D3436" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect x="16" y="16" width="224" height="224" rx="48" ry="48" fill="url(#bgGrad)" filter="url(#shadow)"/>
+
+  <!-- Disk body -->
+  <rect x="58" y="72" width="140" height="100" rx="12" ry="12" fill="url(#diskGrad)" filter="url(#shadow)"/>
+  <rect x="62" y="76" width="132" height="92" rx="10" ry="10" fill="none" stroke="#636E72" stroke-width="1" opacity="0.3"/>
+
+  <!-- Disk label "C:" -->
+  <text x="78" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#2D3436">C:</text>
+
+  <!-- Disk usage bar background -->
+  <rect x="78" y="118" width="100" height="10" rx="5" ry="5" fill="#636E72" opacity="0.2"/>
+  <!-- Disk usage bar - used portion (gradient from danger to safe) -->
+  <rect x="78" y="118" width="72" height="10" rx="5" ry="5" fill="#FF7675" opacity="0.8"/>
+  <!-- Free portion marker -->
+  <rect x="150" y="118" width="28" height="10" rx="5" ry="5" fill="#55EFC4" opacity="0.8"/>
+
+  <!-- Disk usage text -->
+  <text x="78" y="148" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#636E72">72% used</text>
+  <text x="148" y="148" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#55EFC4">28% free</text>
+
+  <!-- Broom / sweep element - dynamic cleaning action -->
+  <g transform="translate(148, 42) rotate(25)" filter="url(#glow)">
+    <!-- Broom handle -->
+    <rect x="6" y="-28" width="6" height="36" rx="3" fill="#DFE6E9"/>
+    <!-- Broom head -->
+    <path d="M0,8 L18,8 L15,22 L3,22 Z" fill="url(#sweepGrad)"/>
+    <!-- Broom bristles -->
+    <line x1="4" y1="22" x2="3" y2="28" stroke="#00CEC9" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="9" y1="22" x2="9" y2="29" stroke="#00CEC9" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="14" y1="22" x2="15" y2="28" stroke="#00CEC9" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Sparkle effects - cleaning in action -->
+  <g fill="#FFEAA7" filter="url(#glow)">
+    <polygon points="58,68 60,62 62,68 60,74" transform="rotate(-15,60,68)"/>
+    <polygon points="46,80 48,74 50,80 48,86" transform="rotate(10,48,80)"/>
+    <polygon points="200,85 202,79 204,85 202,91" transform="rotate(-20,202,85)"/>
+  </g>
+
+  <!-- Shield icon - security/safety -->
+  <g transform="translate(64, 155)" opacity="0.9">
+    <path d="M12,2 L22,7 L22,14 C22,20 17,25 12,27 C7,25 2,20 2,14 L2,7 Z"
+          fill="#00CEC9" opacity="0.3" stroke="#00CEC9" stroke-width="1.5"/>
+    <polyline points="8,14 11,17 17,11" fill="none" stroke="#00CEC9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Bottom label -->
+  <text x="128" y="210" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white" letter-spacing="3">ClearC</text>
+  <text x="128" y="228" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#DFE6E9" letter-spacing="1" opacity="0.8">SMART DISK CLEANER</text>
+</svg>
