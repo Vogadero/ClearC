@@ -1,6 +1,6 @@
 use tauri::menu::{MenuBuilder, MenuItemBuilder};
 use tauri::tray::TrayIconBuilder;
-use tauri::{Manager, WindowEvent};
+use tauri::{Emitter, Manager, WindowEvent};
 
 mod cleaner;
 mod commands;
@@ -39,9 +39,7 @@ fn set_initialized() -> Result<(), String> {
 
 #[tauri::command]
 fn get_disk_space() -> Result<DiskSpace, String> {
-    use std::fs;
-    let total = fs::metadata(r"C:\").map_err(|e| e.to_string())?;
-    // Use windows API for actual disk space
+    // Use Windows API for actual disk space
     Ok(DiskSpace {
         total_bytes: 0,
         used_bytes: 0,
@@ -145,7 +143,7 @@ pub fn run() {
 
             Ok(())
         })
-        .invoke_handler(tauri::handler![
+        .invoke_handler(tauri::generate_handler![
             greet,
             check_initialized,
             set_initialized,

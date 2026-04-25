@@ -9,7 +9,7 @@ pub struct CleanReport {
 }
 
 #[tauri::command]
-pub async fn start_clean(items: Vec<String>) -> Result<CleanReport, String> {
+pub async fn start_clean(_items: Vec<String>) -> Result<CleanReport, String> {
     // TODO: implement clean execution
     Ok(CleanReport {
         freed_space: 0,

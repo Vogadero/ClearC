@@ -1,7 +1,7 @@
 // Big file scanner - placeholder
 use crate::scanner::ScanResult;
 
-pub fn scan(threshold_mb: u64) -> ScanResult {
+pub fn scan(_threshold_mb: u64) -> ScanResult {
     ScanResult {
         module: "big_file".to_string(),
         items: vec![],

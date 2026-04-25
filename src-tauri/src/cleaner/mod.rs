@@ -10,7 +10,7 @@ pub struct CleanResult {
     pub backup_path: Option<String>,
 }
 
-pub fn clean(paths: &[String], backup: bool) -> CleanResult {
+pub fn clean(_paths: &[String], _backup: bool) -> CleanResult {
     // TODO: implement actual clean logic
     CleanResult {
         freed_space: 0,

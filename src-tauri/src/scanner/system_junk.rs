@@ -1,5 +1,5 @@
 // System junk scanner - placeholder
-use crate::scanner::{RiskLevel, ScanItem, ScanResult};
+use crate::scanner::ScanResult;
 
 pub fn scan() -> ScanResult {
     ScanResult {

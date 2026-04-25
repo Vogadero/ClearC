@@ -8,7 +8,7 @@ pub struct ScanResult {
 }
 
 #[tauri::command]
-pub async fn start_scan(module: String) -> Result<ScanResult, String> {
+pub async fn start_scan(_module: String) -> Result<ScanResult, String> {
     // TODO: implement scan dispatch
     Ok(ScanResult {
         total_size: 0,

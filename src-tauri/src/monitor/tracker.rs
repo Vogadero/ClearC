@@ -7,7 +7,7 @@ impl Tracker {
         Tracker
     }
 
-    pub fn identify_process(&self, path: &str) -> Option<ProcessInfo> {
+    pub fn identify_process(&self, _path: &str) -> Option<ProcessInfo> {
         // TODO: identify which process is writing to a file
         None
     }
